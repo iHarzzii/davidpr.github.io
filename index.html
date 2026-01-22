@@ -450,7 +450,7 @@ font-size: 2rem;
 <div class="logo">iHarzz</div>
 <ul>
 <li><a class="nav-link active" data-section="home">Home</a></li>
-<li><a href="https://daavidpr.github.io/blog/" class="nav-link" target="_blank">Blog</a></li>
+<li><a href="https://daavidpr.github.io/blog/" class="nav-link">Blog</a></li>
 <li><a class="nav-link" data-section="proyectos">Proyectos</a></li>
 <li><a class="nav-link" data-section="retos">Retos</a></li>
 </ul>
@@ -463,7 +463,7 @@ font-size: 2rem;
 <div class="hero-content">
 <h1>Penetration Tester & Security Consultant</h1>
 <p class="subtitle">Especializado en auditorías de seguridad, Active Directory y exploración de vulnerabilidades</p>
-<button class="cta-button" onclick="window.open('https://daavidpr.github.io/blog/', '_blank')">Explorar Blog</button>
+<button class="cta-button" onclick="window.location.href='https://daavidpr.github.io/blog/'">Explorar Blog</button>
 <button class="cta-button cta-button-outline" onclick="navigate('proyectos')">Ver Proyectos</button>
 </div>
 </div>
@@ -688,13 +688,6 @@ link.classList.add('active');
 // Scroll to top
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-// Add active class to nav on scroll
-window.addEventListener('scroll', () => {
-if (window.scrollY > 100) {
-document.querySelector('nav').style.borderBottomColor = 'var(--border-color)';
-}
-});
 </script>
 </body>
 </html>

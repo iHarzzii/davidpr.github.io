@@ -155,39 +155,42 @@ margin-bottom: 2rem;
 
 .cta-button {
 display: inline-block;
-padding: 1rem 2.5rem;
+padding: 1.2rem 2.8rem;
 background: linear-gradient(135deg, var(--primary), var(--secondary));
 color: var(--darker-bg);
 text-decoration: none;
 border-radius: 50px;
 font-weight: bold;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+transition: all 0.3s ease;
 cursor: pointer;
 border: none;
 margin: 0.5rem;
-font-size: 1rem;
+font-size: 1.1rem;
+box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
 }
 
 .cta-button:hover {
-transform: translateY(-3px);
-box-shadow: 0 20px 40px rgba(0, 217, 255, 0.3);
+transform: translateY(-5px);
+box-shadow: 0 25px 50px rgba(0, 217, 255, 0.4);
 }
 
 .cta-button-outline {
 background: transparent;
 color: var(--primary);
 border: 2px solid var(--primary);
+box-shadow: none;
 }
 
 .cta-button-outline:hover {
-background: rgba(0, 217, 255, 0.1);
+background: rgba(0, 217, 255, 0.15);
+box-shadow: 0 20px 40px rgba(0, 217, 255, 0.3);
 }
 
 /* Section Styles */
 .section {
 display: none;
 min-height: 100vh;
-padding: 4rem 0;
+padding: 6rem 0;
 animation: fadeIn 0.5s ease-in;
 }
 
@@ -201,117 +204,13 @@ to { opacity: 1; }
 }
 
 .section-title {
-font-size: 3rem;
-margin-bottom: 3rem;
+font-size: 3.5rem;
+margin-bottom: 4rem;
 text-align: center;
 background: linear-gradient(135deg, var(--primary), var(--secondary));
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 background-clip: text;
-}
-
-/* Blog Section */
-.blog-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 2rem;
-margin-top: 2rem;
-}
-
-.blog-card {
-background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
-border: 1px solid var(--border-color);
-border-radius: 10px;
-padding: 2rem;
-transition: all 0.3s ease;
-cursor: pointer;
-}
-
-.blog-card:hover {
-border-color: var(--primary);
-transform: translateY(-5px);
-box-shadow: 0 15px 40px rgba(0, 217, 255, 0.2);
-}
-
-.blog-card-date {
-color: var(--primary);
-font-size: 0.9rem;
-margin-bottom: 0.5rem;
-}
-
-.blog-card h3 {
-font-size: 1.3rem;
-margin-bottom: 1rem;
-color: var(--text-primary);
-}
-
-.blog-card p {
-color: var(--text-secondary);
-margin-bottom: 1rem;
-}
-
-.blog-tag {
-display: inline-block;
-background: rgba(0, 217, 255, 0.1);
-color: var(--primary);
-padding: 0.3rem 0.8rem;
-border-radius: 20px;
-font-size: 0.8rem;
-margin-right: 0.5rem;
-}
-
-/* Proyectos Section */
-.proyectos-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 2rem;
-margin-top: 2rem;
-}
-
-.proyecto-card {
-background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
-border: 1px solid var(--border-color);
-border-radius: 10px;
-overflow: hidden;
-transition: all 0.3s ease;
-}
-
-.proyecto-card:hover {
-border-color: var(--secondary);
-transform: translateY(-5px);
-box-shadow: 0 15px 40px rgba(124, 58, 237, 0.2);
-}
-
-.proyecto-header {
-padding: 1.5rem;
-background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(0, 217, 255, 0.1));
-border-bottom: 1px solid var(--border-color);
-}
-
-.proyecto-card h3 {
-font-size: 1.3rem;
-margin-bottom: 0.5rem;
-}
-
-.proyecto-card p {
-color: var(--text-secondary);
-padding: 1.5rem;
-}
-
-.proyecto-tech {
-display: flex;
-flex-wrap: wrap;
-gap: 0.5rem;
-padding: 1.5rem;
-border-top: 1px solid var(--border-color);
-}
-
-.tech-tag {
-background: rgba(124, 58, 237, 0.2);
-color: var(--secondary);
-padding: 0.3rem 0.8rem;
-border-radius: 15px;
-font-size: 0.8rem;
 }
 
 /* Retos Section */
@@ -320,55 +219,74 @@ margin-top: 2rem;
 }
 
 .reto-category {
-margin-bottom: 3rem;
+margin-bottom: 4rem;
 }
 
 .reto-category h3 {
-font-size: 1.5rem;
-margin-bottom: 1.5rem;
+font-size: 2rem;
+margin-bottom: 2rem;
 color: var(--primary);
 display: flex;
 align-items: center;
 gap: 1rem;
+font-weight: 600;
 }
 
 .reto-category h3::before {
 content: '';
-width: 3px;
-height: 1.5rem;
+width: 4px;
+height: 2rem;
 background: linear-gradient(135deg, var(--primary), var(--secondary));
 border-radius: 2px;
 }
 
 .retos-grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 1.5rem;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 2rem;
 }
 
 .reto-card {
-background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.9));
 border: 1px solid var(--border-color);
-border-radius: 8px;
-padding: 1.5rem;
+border-radius: 15px;
+padding: 2rem 1.5rem;
 text-align: center;
-transition: all 0.3s ease;
+transition: all 0.4s ease;
 cursor: pointer;
+position: relative;
+overflow: hidden;
+}
+
+.reto-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 3px;
+background: linear-gradient(90deg, var(--primary), var(--secondary));
+transform: scaleX(0);
+transition: transform 0.4s ease;
 }
 
 .reto-card:hover {
 border-color: var(--primary);
-transform: scale(1.05);
-box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+transform: translateY(-8px) scale(1.02);
+box-shadow: 0 20px 50px rgba(0, 217, 255, 0.25);
+}
+
+.reto-card:hover::before {
+transform: scaleX(1);
 }
 
 .reto-card .difficulty {
 display: inline-block;
-padding: 0.3rem 0.8rem;
-border-radius: 20px;
-font-size: 0.8rem;
+padding: 0.5rem 1rem;
+border-radius: 25px;
+font-size: 0.85rem;
 font-weight: bold;
-margin-bottom: 0.5rem;
+margin-bottom: 1rem;
 }
 
 .difficulty.easy {
@@ -387,40 +305,51 @@ color: #ef4444;
 }
 
 .reto-card h4 {
-font-size: 1.1rem;
-margin: 0.5rem 0;
+font-size: 1.3rem;
+margin: 1rem 0;
+color: var(--text-primary);
 }
 
 .reto-score {
-font-size: 0.9rem;
-color: var(--text-secondary);
+font-size: 1rem;
+color: var(--primary);
+font-weight: 600;
 }
 
 /* Footer */
 footer {
 background: var(--darker-bg);
 border-top: 1px solid var(--border-color);
-padding: 2rem;
+padding: 3rem 0;
 text-align: center;
 color: var(--text-secondary);
-margin-top: 4rem;
 }
 
 .social-links {
 display: flex;
 justify-content: center;
-gap: 1.5rem;
-margin-bottom: 1.5rem;
+gap: 2rem;
+margin-bottom: 2rem;
 }
 
 .social-links a {
 color: var(--primary);
 text-decoration: none;
-transition: color 0.3s ease;
+font-size: 1.2rem;
+transition: all 0.3s ease;
+padding: 0.8rem;
+border-radius: 10px;
 }
 
 .social-links a:hover {
 color: var(--secondary);
+background: rgba(124, 58, 237, 0.1);
+transform: translateY(-2px);
+}
+
+.footer-text {
+font-size: 0.95rem;
+opacity: 0.8;
 }
 
 /* Responsive */
@@ -430,15 +359,20 @@ gap: 1.5rem;
 }
 
 .hero h1 {
-font-size: 2.5rem;
+font-size: 2.8rem;
 }
 
 .hero .subtitle {
-font-size: 1.1rem;
+font-size: 1.2rem;
 }
 
 .section-title {
-font-size: 2rem;
+font-size: 2.5rem;
+}
+
+.retos-grid {
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+gap: 1.5rem;
 }
 }
 </style>
@@ -451,7 +385,7 @@ font-size: 2rem;
 <ul>
 <li><a class="nav-link active" data-section="home">Home</a></li>
 <li><a href="https://daavidpr.github.io/blog/" class="nav-link">Blog</a></li>
-<li><a class="nav-link" data-section="proyectos">Proyectos</a></li>
+<li><a href="https://daavidpr.github.io/proyectos/" class="nav-link">Proyectos</a></li>
 <li><a class="nav-link" data-section="retos">Retos</a></li>
 </ul>
 </div>
@@ -461,79 +395,10 @@ font-size: 2rem;
 <section id="home" class="section active">
 <div class="hero">
 <div class="hero-content">
-<h1>Penetration Tester & Security Consultant</h1>
-<p class="subtitle">Especializado en auditorías de seguridad, Active Directory y exploración de vulnerabilidades</p>
-<button class="cta-button" onclick="window.location.href='https://daavidpr.github.io/blog/'">Explorar Blog</button>
-<button class="cta-button cta-button-outline" onclick="navigate('proyectos')">Ver Proyectos</button>
-</div>
-</div>
-</section>
-
-<!-- Proyectos Section -->
-<div class="proyecto-card">
-<div class="proyecto-header">
-<h3>Pentesting de Aplicación Web</h3>
-<p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Seguridad de Aplicaciones</p>
-</div>
-<p>Pruebas de penetración integral de aplicación web. Análisis de vulnerabilidades OWASP Top 10, testing de autenticación y autorización.</p>
-<div class="proyecto-tech">
-<span class="tech-tag">Burp Suite</span>
-<span class="tech-tag">OWASP</span>
-<span class="tech-tag">Web Security</span>
-</div>
-</div>
-
-<div class="proyecto-card">
-<div class="proyecto-header">
-<h3>Script Automatización - CrackMapExec</h3>
-<p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Herramienta de Automatización</p>
-</div>
-<p>Desarrollo de script personalizado para automatizar auditorías de Active Directory usando CrackMapExec y Python.</p>
-<div class="proyecto-tech">
-<span class="tech-tag">Python</span>
-<span class="tech-tag">CrackMapExec</span>
-<span class="tech-tag">Automation</span>
-</div>
-</div>
-
-<div class="proyecto-card">
-<div class="proyecto-header">
-<h3>Análisis de Logs y Forensics</h3>
-<p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Análisis Post-Incident</p>
-</div>
-<p>Análisis forense de eventos de seguridad, investigación de incidentes y generación de reportes detallados con evidencia.</p>
-<div class="proyecto-tech">
-<span class="tech-tag">Forensics</span>
-<span class="tech-tag">Log Analysis</span>
-<span class="tech-tag">Reporting</span>
-</div>
-</div>
-
-<div class="proyecto-card">
-<div class="proyecto-header">
-<h3>Red Team Simulation</h3>
-<p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Ejercicio de Simulación</p>
-</div>
-<p>Simulación de ataque completo a infraestructura empresarial. Movimiento lateral, escalada de privilegios y exfiltración de datos.</p>
-<div class="proyecto-tech">
-<span class="tech-tag">Red Team</span>
-<span class="tech-tag">Lateral Movement</span>
-<span class="tech-tag">Exploitation</span>
-</div>
-</div>
-
-<div class="proyecto-card">
-<div class="proyecto-header">
-<h3>Herramienta Custom - Phishing Detection</h3>
-<p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Seguridad Ofensiva</p>
-</div>
-<p>Desarrollo de herramienta para análisis de emails de phishing, extracción de IOCs y generación de reportes de seguridad.</p>
-<div class="proyecto-tech">
-<span class="tech-tag">Python</span>
-<span class="tech-tag">Phishing</span>
-<span class="tech-tag">Security Tools</span>
-</div>
-</div>
+<h1>Penetration Tester</h1>
+<p class="subtitle">Especializado en Active Directory, Web Pentesting y Red Team Operations</p>
+<button class="cta-button" onclick="window.location.href='https://daavidpr.github.io/blog/'">Leer Blog</button>
+<button class="cta-button cta-button-outline" onclick="navigate('retos')">Ver Retos</button>
 </div>
 </div>
 </section>
@@ -542,9 +407,9 @@ font-size: 2rem;
 <section id="retos" class="section">
 <div class="container">
 <h2 class="section-title">Retos & CTF</h2>
-
+<div class="retos-container">
 <div class="reto-category">
-<h3>HackTheBox</h3>
+<h3>🏴‍☠️ HackTheBox</h3>
 <div class="retos-grid">
 <div class="reto-card">
 <span class="difficulty easy">EASY</span>
@@ -580,7 +445,7 @@ font-size: 2rem;
 </div>
 
 <div class="reto-category">
-<h3>TryHackMe - Dockerlabs</h3>
+<h3>🐳 TryHackMe - Dockerlabs</h3>
 <div class="retos-grid">
 <div class="reto-card">
 <span class="difficulty easy">EASY</span>
@@ -606,22 +471,23 @@ font-size: 2rem;
 </div>
 
 <div class="reto-category">
-<h3>PicoCTF & Caixabank Tech</h3>
+<h3>🏦 PicoCTF & Caixabank Tech</h3>
 <div class="retos-grid">
 <div class="reto-card">
 <span class="difficulty easy">EASY</span>
-<h4>PicoCTF - Crypto</h4>
+<h4>PicoCTF Crypto</h4>
 <p class="reto-score">Completado ✓</p>
 </div>
 <div class="reto-card">
 <span class="difficulty medium">MEDIUM</span>
-<h4>PicoCTF - Web</h4>
+<h4>PicoCTF Web</h4>
 <p class="reto-score">Completado ✓</p>
 </div>
 <div class="reto-card">
 <span class="difficulty hard">HARD</span>
-<h4>Caixabank - Challenge</h4>
+<h4>Caixabank Challenge</h4>
 <p class="reto-score">Completado ✓</p>
+</div>
 </div>
 </div>
 </div>
@@ -630,11 +496,13 @@ font-size: 2rem;
 
 <!-- Footer -->
 <footer>
+<div class="container">
 <div class="social-links">
-<a href="https://github.com/DaviiddPR" target="_blank">GitHub</a>
-<a href="https://www.linkedin.com/in/david-poderoso-712407267/" target="_blank">LinkedIn</a>
+<a href="https://github.com/DaviiddPR" target="_blank" rel="noopener noreferrer">GitHub</a>
+<a href="https://www.linkedin.com/in/david-poderoso-712407267/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 </div>
-<p>&copy; 2023 iHarzz | All rights reserved.</p>
+<p class="footer-text">&copy; 2026 iHarzz - Penetration Testing & Cybersecurity. All rights reserved.</p>
+</div>
 </footer>
 
 <script>
@@ -652,13 +520,11 @@ navigate(sectionId);
 });
 
 function navigate(sectionId) {
-// Update sections
 sections.forEach(section => {
 section.classList.remove('active');
 });
 document.getElementById(sectionId).classList.add('active');
 
-// Update nav links
 navLinks.forEach(link => {
 link.classList.remove('active');
 if (link.dataset.section === sectionId) {
@@ -666,7 +532,6 @@ link.classList.add('active');
 }
 });
 
-// Scroll to top
 window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>

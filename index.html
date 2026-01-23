@@ -189,18 +189,6 @@ transform: translateY(-5px);
 box-shadow: 0 25px 50px rgba(0, 217, 255, 0.4);
 }
 
-.cta-button-outline {
-background: transparent;
-color: var(--primary);
-border: 2px solid var(--primary);
-box-shadow: none;
-}
-
-.cta-button-outline:hover {
-background: rgba(0, 217, 255, 0.15);
-box-shadow: 0 20px 40px rgba(0, 217, 255, 0.3);
-}
-
 /* Section Styles */
 .section {
 display: none;
@@ -408,17 +396,16 @@ gap: 1.5rem;
 <div class="container">
 <div class="logo">iHarzz</div>
 <ul>
-<li><a class="nav-link active" data-section="home">Home</a></li>
+<li><a class="nav-link active" href="#home">Home</a></li>
 <li><a href="https://daavidpr.github.io/blog/" class="nav-link">Blog</a></li>
 <li><a href="https://daavidpr.github.io/proyectos/" class="nav-link">Proyectos</a></li>
-<li><a class="nav-link" data-section="retos">Retos</a></li>
+<li><a href="https://daavidpr.github.io/retos/" class="nav-link">Retos</a></li>
 </ul>
 </div>
 </nav>
 
 <!-- Home Section -->
-<section id="home" class="section active">
-<div class="hero">
+<section id="home" class="hero">
 <div class="hero-content">
 <h1>Penetration Tester</h1>
 <p class="subtitle">Especializado en Active Directory, Web Pentesting y Red Team Operations</p>
@@ -427,16 +414,6 @@ gap: 1.5rem;
 <button class="cta-button" onclick="window.location.href='https://daavidpr.github.io/proyectos/'">Ver Proyectos</button>
 <button class="cta-button" onclick="window.location.href='https://daavidpr.github.io/retos/'">Ver Retos</button>
 </div>
-</div>
-</div>
-</section>
-
-<!-- Retos Section -->
-<section id="retos" class="section">
-<div class="container">
-<h2 class="section-title">Retos & CTF</h2>
-<div class="retos-container">
-<!-- Aquí irían tus retos -->
 </div>
 </div>
 </section>
@@ -455,19 +432,15 @@ gap: 1.5rem;
 </footer>
 
 <script>
-function navigate(section) {
-  // Remover clase active de todas las secciones y links
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-  
-  // Activar sección correspondiente
-  if (section === 'retos') {
-    window.location.href = 'https://daavidpr.github.io/retos/';
-  } else {
-    document.getElementById(section).classList.add('active');
-    document.querySelector(`[data-section="${section}"]`).classList.add('active');
-  }
-}
+// Smooth scroll para navegación interna
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 
 // Navbar active on scroll
 window.addEventListener('scroll', () => {

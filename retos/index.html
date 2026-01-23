@@ -4,372 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>iHarzz - Retos | CTF & Challenges</title>
-<style>
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-
-:root {
---primary: #00d9ff;
---secondary: #7c3aed;
---dark-bg: #0f172a;
---darker-bg: #020617;
---text-primary: #f1f5f9;
---text-secondary: #cbd5e1;
---border-color: #1e293b;
-}
-
-body {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-color: var(--dark-bg);
-color: var(--text-primary);
-line-height: 1.6;
-overflow-x: hidden;
-}
-
-/* Navbar */
-nav {
-background: rgba(15, 23, 42, 0.95);
-backdrop-filter: blur(10px);
-border-bottom: 1px solid var(--border-color);
-position: sticky;
-top: 0;
-z-index: 1000;
-padding: 1.5rem 0;
-}
-
-nav .container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 2rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-
-.logo {
-font-size: 1.8rem;
-font-weight: bold;
-background: linear-gradient(135deg, var(--primary), var(--secondary));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-}
-
-nav ul {
-display: flex;
-list-style: none;
-gap: 3rem;
-}
-
-nav a {
-color: var(--text-secondary);
-text-decoration: none;
-transition: color 0.3s ease;
-font-weight: 500;
-cursor: pointer;
-}
-
-nav a:hover,
-nav a.active {
-color: var(--primary);
-}
-
-/* Container */
-.container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 2rem;
-}
-
-/* Hero Section */
-.hero {
-min-height: 70vh;
-display: flex;
-align-items: center;
-justify-content: center;
-background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), rgba(124, 58, 237, 0.08));
-position: relative;
-overflow: hidden;
-padding-top: 100px;
-}
-
-.hero::before {
-content: '';
-position: absolute;
-width: 400px;
-height: 400px;
-background: radial-gradient(circle, rgba(0, 217, 255, 0.15), transparent);
-border-radius: 50%;
-top: -100px;
-right: -100px;
-animation: float 6s ease-in-out infinite;
-}
-
-.hero::after {
-content: '';
-position: absolute;
-width: 300px;
-height: 300px;
-background: radial-gradient(circle, rgba(124, 58, 237, 0.15), transparent);
-border-radius: 50%;
-bottom: -50px;
-left: -50px;
-animation: float 8s ease-in-out infinite;
-}
-
-@keyframes float {
-0%, 100% { transform: translateY(0px); }
-50% { transform: translateY(30px); }
-}
-
-.hero-content {
-text-align: center;
-z-index: 1;
-animation: slideUp 0.8s ease-out;
-max-width: 900px;
-}
-
-@keyframes slideUp {
-from {
-opacity: 0;
-transform: translateY(30px);
-}
-to {
-opacity: 1;
-transform: translateY(0);
-}
-}
-
-.hero h1 {
-font-size: 4.5rem;
-margin-bottom: 1rem;
-line-height: 1.2;
-}
-
-.hero .subtitle {
-font-size: 1.6rem;
-color: var(--text-secondary);
-margin-bottom: 2rem;
-}
-
-.hero-stats {
-display: flex;
-justify-content: center;
-gap: 4rem;
-margin-top: 2.5rem;
-}
-
-.stat {
-text-align: center;
-}
-
-.stat-number {
-font-size: 3rem;
-font-weight: bold;
-background: linear-gradient(135deg, var(--primary), var(--secondary));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-display: block;
-}
-
-.stat-label {
-color: var(--text-secondary);
-font-size: 1rem;
-letter-spacing: 1px;
-text-transform: uppercase;
-}
-
-/* Retos Grid */
-.retos-container {
-margin-top: 6rem;
-margin-bottom: 8rem;
-}
-
-.reto-category {
-margin-bottom: 5rem;
-}
-
-.reto-category h3 {
-font-size: 2.5rem;
-margin-bottom: 2.5rem;
-color: var(--primary);
-display: flex;
-align-items: center;
-gap: 1.5rem;
-font-weight: 700;
-}
-
-.reto-category h3::before {
-content: '';
-width: 5px;
-height: 2.5rem;
-background: linear-gradient(135deg, var(--primary), var(--secondary));
-border-radius: 3px;
-}
-
-.platform-icon {
-font-size: 2rem;
-}
-
-.retos-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-gap: 2.5rem;
-}
-
-.reto-card {
-background: linear-gradient(135deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.95));
-border: 2px solid var(--border-color);
-border-radius: 20px;
-overflow: hidden;
-transition: all 0.4s ease;
-cursor: pointer;
-position: relative;
-}
-
-.reto-card::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-height: 4px;
-background: linear-gradient(90deg, var(--primary), var(--secondary));
-transform: scaleX(0);
-transition: transform 0.4s ease;
-}
-
-.reto-card:hover {
-border-color: var(--primary);
-transform: translateY(-12px);
-box-shadow: 0 35px 70px rgba(0, 217, 255, 0.3);
-}
-
-.reto-card:hover::before {
-transform: scaleX(1);
-}
-
-.reto-card-content {
-padding: 2.5rem 2rem;
-text-align: center;
-}
-
-.reto-card .difficulty {
-display: inline-block;
-padding: 0.6rem 1.5rem;
-border-radius: 30px;
-font-size: 0.9rem;
-font-weight: bold;
-margin-bottom: 1.5rem;
-box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-.difficulty.easy {
-background: rgba(34, 197, 94, 0.25);
-color: #22c55e;
-border: 1px solid rgba(34, 197, 94, 0.3);
-}
-
-.difficulty.medium {
-background: rgba(245, 158, 11, 0.25);
-color: #f59e0b;
-border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
-.difficulty.hard {
-background: rgba(239, 68, 68, 0.25);
-color: #ef4444;
-border: 1px solid rgba(239, 68, 68, 0.3);
-}
-
-.reto-card h4 {
-font-size: 1.6rem;
-margin: 1.5rem 0;
-color: var(--text-primary);
-font-weight: 600;
-}
-
-.reto-score {
-font-size: 1.2rem;
-color: var(--primary);
-font-weight: 700;
-text-transform: uppercase;
-letter-spacing: 1px;
-}
-
-/* Footer */
-footer {
-background: var(--darker-bg);
-border-top: 1px solid var(--border-color);
-padding: 3rem 0;
-text-align: center;
-color: var(--text-secondary);
-}
-
-.social-links {
-display: flex;
-justify-content: center;
-gap: 2rem;
-margin-bottom: 2rem;
-}
-
-.social-links a {
-color: var(--primary);
-text-decoration: none;
-font-size: 1.2rem;
-transition: all 0.3s ease;
-padding: 0.8rem;
-border-radius: 10px;
-}
-
-.social-links a:hover {
-color: var(--secondary);
-background: rgba(124, 58, 237, 0.1);
-transform: translateY(-2px);
-}
-
-.footer-text {
-font-size: 0.95rem;
-opacity: 0.8;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-nav ul {
-gap: 1.5rem;
-}
-
-.hero h1 {
-font-size: 3.2rem;
-}
-
-.hero .subtitle {
-font-size: 1.3rem;
-}
-
-.hero-stats {
-gap: 2rem;
-flex-direction: column;
-}
-
-.stat-number {
-font-size: 2.2rem;
-}
-
-.retos-grid {
-grid-template-columns: 1fr;
-gap: 2rem;
-}
-
-.reto-category h3 {
-font-size: 1.8rem;
-}
-}
-</style>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/retos.css">
 </head>
 <body>
 <!-- Navigation -->
@@ -377,15 +13,16 @@ font-size: 1.8rem;
 <div class="container">
 <div class="logo">iHarzz</div>
 <ul>
-<li><a href="https://daavidpr.github.io/" class="nav-link">Home</a></li>
-<li><a href="https://daavidpr.github.io/blog/" class="nav-link">Blog</a></li>
-<li><a href="https://daavidpr.github.io/proyectos/" class="nav-link">Proyectos</a></li>
+<li><a href="../" class="nav-link">Home</a></li>
+<li><a href="../blog/" class="nav-link">Blog</a></li>
+<li><a href="../proyectos/" class="nav-link">Proyectos</a></li>
 <li><a class="nav-link active">Retos</a></li>
 </ul>
 </div>
 </nav>
 
 <!-- Hero Section -->
+<main>
 <section class="hero">
 <div class="hero-content">
 <h1>CTF & Challenges</h1>
@@ -400,75 +37,100 @@ font-size: 1.8rem;
 <span class="stat-label">Rank</span>
 </div>
 <div class="stat">
-<span class="stat-number">15+</span>
-<span class="stat-label">Write-ups</span>
+<span class="stat-number">THM</span>
+<span class="stat-label">Top 1%</span>
 </div>
 </div>
 </div>
 </section>
 
 <!-- Retos Section -->
-<section class="container">
-<div class="retos-container">
+<section class="container retos-container">
+<!-- HackTheBox -->
 <div class="reto-category">
-<h3><span class="platform-icon">🏴‍☠️</span> HackTheBox</h3>
+<h3><span class="platform-icon">🟢</span> HackTheBox</h3>
 <div class="retos-grid">
 <div class="reto-card">
 <div class="reto-card-content">
-<span class="difficulty easy">EASY</span>
-<h4>Lame</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-</div>
-<div class="reto-card">
-<div class="reto-card-content">
-<span class="difficulty easy">EASY</span>
-<h4>Bashed</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-</div>
-<div class="reto-card">
-<div class="reto-card-content">
-<span class="difficulty medium">MEDIUM</span>
-<h4>Nibbles</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-</div>
-<div class="reto-card">
-<div class="reto-card-content">
-<span class="difficulty medium">MEDIUM</span>
-<h4>Beep</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-</div>
-<div class="reto-card">
-<div class="reto-card-content">
-<span class="difficulty hard">HARD</span>
+<span class="difficulty easy">Easy</span>
 <h4>Active</h4>
-<p class="reto-score">Completado ✓</p>
+<div class="reto-score">100 / 100</div>
 </div>
 </div>
 <div class="reto-card">
 <div class="reto-card-content">
-<span class="difficulty hard">HARD</span>
-<h4>Hackback</h4>
-<p class="reto-score">En progreso...</p>
+<span class="difficulty medium">Medium</span>
+<h4>Forest</h4>
+<div class="reto-score">100 / 100</div>
+</div>
+</div>
+<div class="reto-card">
+<div class="reto-card-content">
+<span class="difficulty medium">Medium</span>
+<h4>Monteverde</h4>
+<div class="reto-score">100 / 100</div>
+</div>
+</div>
+<div class="reto-card">
+<div class="reto-card-content">
+<span class="difficulty hard">Hard</span>
+<h4>Intelligence</h4>
+<div class="reto-score">100 / 100</div>
 </div>
 </div>
 </div>
 </div>
 
+<!-- TryHackMe -->
 <div class="reto-category">
-<h3><span class="platform-icon">🐳</span> TryHackMe - Dockerlabs</h3>
+<h3><span class="platform-icon">🔴</span> TryHackMe</h3>
 <div class="retos-grid">
 <div class="reto-card">
 <div class="reto-card-content">
-<span class="difficulty easy">EASY</span>
-<h4>Dockerlabs #1</h4>
-<p class="reto-score">Completado ✓</p>
+<span class="difficulty easy">Easy</span>
+<h4>Pickle Rick</h4>
+<div class="reto-score">COMPLETADO</div>
 </div>
 </div>
 <div class="reto-card">
 <div class="reto-card-content">
-<span class="difficulty easy">EASY</span>
-<h4>Dockerlabs #
+<span class="difficulty medium">Medium</span>
+<h4>Steel Mountain</h4>
+<div class="reto-score">COMPLETADO</div>
+</div>
+</div>
+<div class="reto-card">
+<div class="reto-card-content">
+<span class="difficulty medium">Medium</span>
+<h4>Alfred</h4>
+<div class="reto-score">COMPLETADO</div>
+</div>
+</div>
+<div class="reto-card">
+<div class="reto-card-content">
+<span class="difficulty hard">Hard</span>
+<h4>Internal</h4>
+<div class="reto-score">COMPLETADO</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="social-links">
+<a href="https://github.com/daavidpr" target="_blank">GitHub</a>
+<a href="https://linkedin.com/in/daavidpr" target="_blank">LinkedIn</a>
+<a href="https://twitter.com/daavidpr" target="_blank">Twitter/X</a>
+<a href="mailto:contacto@iharzz.com">Email</a>
+</div>
+<p class="footer-text">&copy; 2026 iHarzz - Penetration Testing & Cybersecurity. All rights reserved.</p>
+</div>
+</footer>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

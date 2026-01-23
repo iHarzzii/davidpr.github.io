@@ -72,6 +72,10 @@ font-weight: 500;
 cursor: pointer;
 }
 
+nav a:visited {
+  color: var(--text-secondary);
+}
+
 nav a:hover,
 nav a.active {
 color: var(--primary);
@@ -421,7 +425,7 @@ gap: 1.5rem;
 <div class="cta-buttons">
 <button class="cta-button" onclick="window.location.href='https://daavidpr.github.io/blog/'">Leer Blog</button>
 <button class="cta-button" onclick="window.location.href='https://daavidpr.github.io/proyectos/'">Ver Proyectos</button>
-<button class="cta-button cta-button-outline" onclick="navigate('retos')">Ver Retos</button>
+<button class="cta-button" onclick="navigate('retos')">Ver Retos</button>
 </div>
 </div>
 </div>
@@ -431,133 +435,4 @@ gap: 1.5rem;
 <section id="retos" class="section">
 <div class="container">
 <h2 class="section-title">Retos & CTF</h2>
-<div class="retos-container">
-<div class="reto-category">
-<h3>🏴‍☠️ HackTheBox</h3>
-<div class="retos-grid">
-<div class="reto-card">
-<span class="difficulty easy">EASY</span>
-<h4>Lame</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-<div class="reto-card">
-<span class="difficulty easy">EASY</span>
-<h4>Bashed</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-<div class="reto-card">
-<span class="difficulty medium">MEDIUM</span>
-<h4>Nibbles</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-<div class="reto-card">
-<span class="difficulty medium">MEDIUM</span>
-<h4>Beep</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-<div class="reto-card">
-<span class="difficulty hard">HARD</span>
-<h4>Active</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-<div class="reto-card">
-<span class="difficulty hard">HARD</span>
-<h4>Hackback</h4>
-<p class="reto-score">En progreso...</p>
-</div>
-</div>
-</div>
-
-<div class="reto-category">
-<h3>🐳 TryHackMe - Dockerlabs</h3>
-<div class="retos-grid">
-<div class="reto-card">
-<span class="difficulty easy">EASY</span>
-<h4>Dockerlabs #1</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-<div class="reto-card">
-<span class="difficulty easy">EASY</span>
-<h4>Dockerlabs #2</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-<div class="reto-card">
-<span class="difficulty medium">MEDIUM</span>
-<h4>Dockerlabs #5</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-<div class="reto-card">
-<span class="difficulty hard">HARD</span>
-<h4>Dockerlabs #8</h4>
-<p class="reto-score">En progreso...</p>
-</div>
-</div>
-</div>
-
-<div class="reto-category">
-<h3>🏦 PicoCTF & Caixabank Tech</h3>
-<div class="retos-grid">
-<div class="reto-card">
-<span class="difficulty easy">EASY</span>
-<h4>PicoCTF Crypto</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-<div class="reto-card">
-<span class="difficulty medium">MEDIUM</span>
-<h4>PicoCTF Web</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-<div class="reto-card">
-<span class="difficulty hard">HARD</span>
-<h4>Caixabank Challenge</h4>
-<p class="reto-score">Completado ✓</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Footer -->
-<footer>
-<div class="container">
-<div class="social-links">
-<a href="https://github.com/DaviiddPR" target="_blank" rel="noopener noreferrer">GitHub</a>
-<a href="https://www.linkedin.com/in/david-poderoso-712407267/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-</div>
-<p class="footer-text">&copy; 2026 iHarzz - Penetration Testing & Cybersecurity. All rights reserved.</p>
-</div>
-</footer>
-
-<script>
-// Navigation
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('.section');
-
-navLinks.forEach(link => {
-link.addEventListener('click', (e) => {
-const sectionId = link.dataset.section;
-if (sectionId) {
-navigate(sectionId);
-}
-});
-});
-
-function navigate(sectionId) {
-sections.forEach(section => {
-section.classList.remove('active');
-});
-document.getElementById(sectionId).classList.add('active');
-
-navLinks.forEach(link => {
-link.classList.remove('active');
-if (link.dataset.section === sectionId) {
-link.classList.add('active');
-}
-});
-
-window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
-</body>
-</html>
+<div class

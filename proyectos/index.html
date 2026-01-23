@@ -1,1 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iHarzz - Proyectos | Penetration Testing</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+:root {
+--primary: #00d9ff;
+--secondary: #7c3aed;
+--dark-bg: #0f172a;
+--darker-bg: #020617;
+--text-primary: #f1f5f9;
+--text-secondary: #cbd5e1;
+--border-color: #1e293b;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: var(--dark-bg);
+color: var(--text-primary);
+line-height: 1.6;
+overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+background: rgba(15, 23, 42, 0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid var(--border-color);
+position: sticky;
+top: 0;
+z-index: 1000;
+padding: 1.5rem 0;
+}
+
+nav .container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+font-size: 1.8rem;
+font-weight: bold;
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+}
+
+nav ul {
+display: flex;
+list-style: none;
+gap: 3rem;
+}
+
+nav a {
+color: var(--text-secondary);
+text-decoration: none;
+transition: color 0.3s ease;
+font-weight: 500;
+cursor: pointer;
+}
+
+nav a:hover,
+nav a.active {
+color: var(--primary);
+}
+
+/* Container */
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+
+/* Hero Section */
+.hero {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(124, 58, 237, 0.05));
+position: relative;
+overflow: hidden;
+padding-top: 100px;
+}
+
+.hero::before {
+content: '';
+position: absolute;
+width: 400px;
+height: 400px;
+background: radial-gradient(circle, rgba(0, 217, 255, 0.1), transparent);
+border-radius: 50%;
+top: -100px;
+right: -100px;
+animation: float 6s ease-in-out infinite;
+}
+
+.hero::after {
+content: '';
+position: absolute;
+width: 300px;
+height: 300px;
+background: radial-gradient(circle, rgba(124, 58, 237, 0.1), transparent);
+border-radius: 50%;
+bottom: -50px;
+left: -50px;
+animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(30px); }
+}
+
+.hero-content {
+text-align: center;
+z-index: 1;
+animation: slideUp 0.8s ease-out;
+max-width: 800px;
+}
+
+@keyframes slideUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.hero h1 {
+font-size: 4rem;
+margin-bottom: 1rem;
+line-height: 1.2;
+}
+
+.hero .subtitle {
+font-size: 1.5rem;
+color: var(--text-secondary);
+margin-bottom: 2rem;
+}
+
+.cta-button {
+display: inline-block;
+padding: 1rem 2.5rem;
+background: linear-gradient(135deg, var(--primary), var(--secondary));
+color: var(--darker-bg);
+text-decoration: none;
+border-radius: 50px;
+font-weight: bold;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+border: none;
+margin: 0.5rem;
+font-size: 1rem;
+}
+
+.cta-button:hover {
+transform: translateY(-3px);
+box-shadow: 0 20px 40px rgba(0, 217, 255, 0.3);
+}
+
+.cta-button-outline {
+background: transparent;
+color: var(--primary);
+border: 2px solid var(--primary);
+}
+
+.cta-button-outline:hover {
+background: rgba(0, 217, 255, 0.1);
+}
+
+/* Proyectos Grid */
+.proyectos-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 2rem;
+margin-top: 4rem;
+}
+
+.proyecto-card {
+background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+border: 1px solid var(--border-color);
+border-radius: 15px;
+overflow: hidden;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.proyecto-card:hover {
+border-color: var(--secondary);
+transform: translateY(-8px);
+box-shadow: 0 25px 50px rgba(124, 58, 237, 0.3);
+}
+
+.proyecto-header {
+padding: 2rem;
+background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(0, 217, 255, 0.1));
+border-bottom: 1px solid var(--border-color);
+}
+
+.proyecto-card h3 {
+font-size: 1.5rem;
+margin-bottom: 0.5rem;
+color: var(--text-primary);
+}
+
+.proyecto-card .subtitle-proyecto {
+color: var(--text-secondary);
+font-size: 0.95rem;
+margin-bottom: 1.5rem;
+}
+
+.proyecto-card .description {
+color: var(--text-primary);
+padding: 2rem;
+font-size: 1.05rem;
+line-height: 1.7;
+}
+
+.proyecto-tech {
+display: flex;
+flex-wrap: wrap;
+gap: 0.75rem;
+padding: 2rem;
+border-top: 1px solid var(--border-color);
+background: rgba(124, 58, 237, 0.05);
+}
+
+.tech-tag {
+background: rgba(124, 58, 237, 0.2);
+color: var(--secondary);
+padding: 0.5rem 1.2rem;
+border-radius: 25px;
+font-size: 0.85rem;
+font-weight: 500;
+transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+background: rgba(0, 217, 255, 0.2);
+color: var(--primary);
+transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+background: var(--darker-bg);
+border-top: 1px solid var(--border-color);
+padding: 3rem 0;
+text-align: center;
+color: var(--text-secondary);
+margin-top: 6rem;
+}
+
+.social-links {
+display: flex;
+justify-content: center;
+gap: 2rem;
+margin-bottom: 2rem;
+}
+
+.social-links a {
+color: var(--primary);
+text-decoration: none;
+font-size: 1.1rem;
+transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+color: var(--secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+nav ul {
+gap: 1.5rem;
+}
+
+.hero h1 {
+font-size: 2.5rem;
+}
+
+.hero .subtitle {
+font-size: 1.1rem;
+}
+
+.proyectos-grid {
+grid-template-columns: 1fr;
+gap: 1.5rem;
+}
+
+.proyecto-header {
+padding: 1.5rem;
+}
+
+.proyecto-card .description {
+padding: 1.5rem;
+}
+}
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav>
+<div class="container">
+<div class="logo">iHarzz</div>
+<ul>
+<li><a href="https://daavidpr.github.io/" class="nav-link">Home</a></li>
+<li><a href="https://daavidpr.github.io/blog/" class="nav-link">Blog</a></li>
+<li><a class="nav-link active">Proyectos</a></li>
+<li><a href="https://daavidpr.github.io/retos/" class="nav-link">Retos</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-content">
+<h1>Mis Proyectos</h1>
+<p class="subtitle">Proyectos reales de penetration testing, automatización y desarrollo de herramientas de seguridad</p>
+<a href="#proyectos" class="cta-button">Ver Proyectos</a>
+</div>
+</section>
+
+<!-- Proyectos Section -->
+<section id="proyectos" class="container">
+<div class="proyectos-grid">
+<div class="proyecto-card">
+<div class="proyecto-header">
+<h3>Auditoría de Seguridad - Aritex</h3>
+<p class="subtitle-proyecto">Auditoría de Red Interna | 2025</p>
+</div>
+<div class="description">
+Auditoría de seguridad integral de infraestructura de red interna empresarial. Identificación de vulnerabilidades críticas en Active Directory, análisis de configuraciones de red y propuestas detalladas de mitigación con priorización por riesgo.
+</div>
+<div class="proyecto-tech">
+<span class="tech-tag">Nmap</span>
+<span class="tech-tag">BloodHound</span>
+<span class="tech-tag">CrackMapExec</span>
+<span class="tech-tag">Active Directory</span>
+<span class="tech-tag">Vulnerability Assessment</span>
+</div>
+</div>
+
+<div class="proyecto-card">
+<div class="proyecto-header">
+<h3>Pentesting Web OWASP Top 10</h3>
+<p class="subtitle-proyecto">Aplicaciones Web | 2025</p>
+</div>
+<div class="description">
+Pruebas de penetración exhaustivas cubriendo OWASP Top 10. Análisis completo de autenticación, autorización, inyecciones SQL, XSS, XXE, CSRF y configuraciones de seguridad de aplicaciones web empresariales.
+</div>
+<div class="proyecto-tech">
+<span class="tech-tag">Burp Suite</span>
+<span class="tech-tag">OWASP ZAP</span>
+<span class="tech-tag">SQLMap</span>
+<span class="tech-tag">Nuclei</span>
+<span class="tech-tag">Web Security</span>
+</div>
+</div>
+
+<div class="proyecto-card">
+<div class="proyecto-header">
+<h3>CrackMapExec Automation</h3>
+<p class="subtitle-proyecto">Script Python | Active Directory</p>
+</div>
+<div class="description">
+Desarrollo de script personalizado para automatizar enumeración masiva de Active Directory usando CrackMapExec. Integración con BloodHound y generación automática de reportes de hallazgos críticos.
+</div>
+<div class="proyecto-tech">
+<span class="tech-tag">Python</span>
+<span class="tech-tag">CrackMapExec</span>
+<span class="tech-tag">BloodHound</span>
+<span class="tech-tag">PowerShell</span>
+<span class="tech-tag">Automation</span>
+</div>
+</div>
+
+<div class="proyecto-card">
+<div class="proyecto-header">
+<h3>Forensic Analysis Toolkit</h3>
+<p class="subtitle-proyecto">Análisis Post-Incidente | 2025</p>
+</div>
+<div class="description">
+Herramienta para análisis forense de logs de seguridad Windows/Linux. Extracción automática de IOCs, timeline de eventos y correlación de incidentes con evidencia chain-of-custody.
+</div>
+<div class="proyecto-tech">
+<span class="tech-tag">Python</span>
+<span class="tech-tag">ELK Stack</span>
+<span class="tech-tag">Sigma Rules</span>
+<span class="tech-tag">Forensics</span>
+<span class="tech-tag">Log Analysis</span>
+</div>
+</div>
+
+<div class="proyecto-card">
+<div class="proyecto-header">
+<h3>Red Team Exercise</h3>
+<p class="subtitle-proyecto">Simulación Completa | Infraestructura</p>
+</div>
+<div class="description">
+Simulación completa de ataque Red Team: enumeración inicial, explotación inicial, movimiento lateral, escalada de privilegios, persistencia y exfiltración de datos simulados en entorno empresarial.
+</div>
+<div class="proyecto-tech">
+<span class="tech-tag">Metasploit</span>
+<span class="tech-tag">Cobalt Strike</span>
+<span class="tech-tag">Evil-WinRM</span>
+<span class="tech-tag">Red Team</span>
+<span class="tech-tag">Lateral Movement</span>
+</div>
+</div>
+
+<div class="proyecto-card">
+<div class="proyecto-header">
+<h3>Phishing Detection Tool</h3>
+<p class="subtitle-proyecto">Análisis de Emails | Custom Tool</p>
+</div>
+<div class="description">
+Herramienta personalizada para detección automatizada de phishing. Análisis de headers, extracción de IOCs (IPs, dominios, hashes), scoring de riesgo y generación de reportes ejecutivos.
+</div>
+<div class="proyecto-tech">
+<span class="tech-tag">Python</span>
+<span class="tech-tag">YARA</span>
+<span class="tech-tag">VirusTotal API</span>
+<span class="tech-tag">Phishing</span>
+<span class="tech-tag">Threat Intelligence</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="social-links">
+<a href="https://github.com/daavidpr" target="_blank">GitHub</a>
+<a href="https://linkedin.com/in/daavidpr" target="_blank">LinkedIn</a>
+<a href="https://twitter.com/daavidpr" target="_blank">Twitter/X</a>
+<a href="mailto:contacto@iharzz.com">Email</a>
+</div>
+<p>&copy; 2026 iHarzz - Penetration Testing & Cybersecurity. All rights reserved.</p>
+</div>
+</footer>
+
+<script>
+// Smooth scroll para el botón del hero
+document.querySelector('.cta-button').addEventListener('click', (e) => {
+e.preventDefault();
+document.getElementById('proyectos').scrollIntoView({ 
+behavior: 'smooth' 
+});
+});
+
+// Navbar active on scroll
+window.addEventListener('scroll', () => {
+if (window.scrollY > 100) {
+document.querySelector('nav').style.borderBottomColor = 'var(--border-color)';
+}
+});
+</script>
+</body>
+</html>
 

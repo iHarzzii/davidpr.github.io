@@ -14,22 +14,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Create Mouse Glow dynamically
-const createGlow = () => {
-    if (!document.querySelector('.mouse-glow')) {
-        const glow = document.createElement('div');
-        glow.className = 'mouse-glow';
-        document.body.prepend(glow);
-    }
-};
-
-// Mouse Glow Effect
-window.addEventListener('mousemove', (e) => {
-    const glow = document.querySelector('.mouse-glow');
-    if (glow) {
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
-    }
+// Page Load Effect
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
 });
 
 // Reveal elements on scroll

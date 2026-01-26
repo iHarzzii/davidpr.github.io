@@ -20,6 +20,21 @@ background-color: var(--dark-bg);
 color: var(--text-primary);
 line-height: 1.6;
 overflow-x: hidden;
+position: relative;
+}
+
+/* Mouse Glow Effect */
+.mouse-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 217, 255, 0.15), transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+    mix-blend-mode: screen;
 }
 
 /* Navbar */
@@ -115,6 +130,29 @@ border-radius: 50%;
 bottom: -50px;
 left: -50px;
 animation: float 8s ease-in-out infinite;
+}
+
+/* Animations and Reveals */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.stagger-item.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @keyframes float {

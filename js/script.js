@@ -14,11 +14,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Page Load Effect
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
-
 // Reveal elements on scroll
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -40,7 +35,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 // Initialize observers
 document.addEventListener('DOMContentLoaded', () => {
-    createGlow();
     document.querySelectorAll('.reveal, .stagger-container').forEach(el => {
         revealObserver.observe(el);
     });

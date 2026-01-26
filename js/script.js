@@ -14,6 +14,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Create Mouse Glow dynamically
+const createGlow = () => {
+    if (!document.querySelector('.mouse-glow')) {
+        const glow = document.createElement('div');
+        glow.className = 'mouse-glow';
+        document.body.prepend(glow);
+    }
+};
+
+// Mouse Glow Effect
+window.addEventListener('mousemove', (e) => {
+    const glow = document.querySelector('.mouse-glow');
+    if (glow) {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+    }
+});
+
+// Reveal elements on scroll
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            
+            // Si es un contenedor de elementos escalonados
+            if (entry.target.classList.contains('stagger-container')) {
+                const items = entry.target.querySelectorAll('.stagger-item');
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('active');
+                    }, index * 100);
+                });
+            }
+        }
+    });
+}, { threshold: 0.1 });
+
+// Initialize observers
+document.addEventListener('DOMContentLoaded', () => {
+    createGlow();
+    document.querySelectorAll('.reveal, .stagger-container').forEach(el => {
+        revealObserver.observe(el);
+    });
+});
+
 // Navbar active on scroll
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');

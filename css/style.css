@@ -20,21 +20,12 @@ background-color: var(--dark-bg);
 color: var(--text-primary);
 line-height: 1.6;
 overflow-x: hidden;
-position: relative;
+opacity: 0;
+transition: opacity 0.8s ease-in-out;
 }
 
-/* Mouse Glow Effect */
-.mouse-glow {
-    position: fixed;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(0, 217, 255, 0.15), transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s;
-    mix-blend-mode: screen;
+body.loaded {
+    opacity: 1;
 }
 
 /* Navbar */

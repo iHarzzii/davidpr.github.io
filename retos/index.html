@@ -1,247 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iHarzz - Retos | CTF & Challenges</title>
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/retos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHarzz - Retos | CTF & Platforms</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/retos.css">
 </head>
 <body>
-<!-- Navigation -->
-<nav>
-<div class="container">
-<a href="../" class="logo">iHarzz</a>
-<ul>
-<li><a href="../" class="nav-link">Home</a></li>
-<li><a href="../blog/" class="nav-link">Blog</a></li>
-<li><a href="../proyectos/" class="nav-link">Proyectos</a></li>
-<li><a class="nav-link active">Retos</a></li>
-</ul>
-</div>
-</nav>
-
-<!-- Hero Section -->
-<main>
-<section class="hero">
-<div class="hero-content">
-        <h1>CTF & Challenges</h1>
-        <p class="subtitle">Máquinas y retos resueltos en HackTheBox, TryHackMe, CaixaBank y PicoCTF</p>
-        <div class="hero-stats">
-            <div class="stat">
-                <span class="stat-number">30+</span>
-                <span class="stat-label">Retos</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">4</span>
-                <span class="stat-label">Plataformas</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">Top 1%</span>
-                <span class="stat-label">THM</span>
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../" class="logo">iHarzz</a>
+            <ul>
+                <li><a href="../" class="nav-link">Home</a></li>
+                <li><a href="../blog/" class="nav-link">Blog</a></li>
+                <li><a href="../proyectos/" class="nav-link">Proyectos</a></li>
+                <li><a class="nav-link active">Retos</a></li>
+            </ul>
         </div>
-</div>
-</section>
+    </nav>
 
-<!-- Retos Section -->
-<section class="container retos-container">
-    <!-- HackTheBox -->
-    <div class="reto-category">
-        <h2><span class="platform-icon">🟢</span> HackTheBox</h2>
-        <div class="retos-grid">
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty easy">Easy</span>
-                    <h3>Active</h3>
-                    <p class="reto-description">Explotación de Active Directory involucrando GPP y Kerberoasting para obtener Domain Admin.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">AD</span>
-                        <span class="reto-tag">GPP</span>
-                        <span class="reto-tag">Windows</span>
+    <!-- Hero Section -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>CTF & Platforms</h1>
+                <p class="subtitle">Explora mis write-ups y retos por plataforma</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Retos</span>
                     </div>
-                    <div class="reto-score">100 / 100</div>
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Plataformas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Top 1%</span>
+                        <span class="stat-label">THM Rank</span>
+                    </div>
                 </div>
             </div>
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty medium">Medium</span>
-                    <h4>Forest</h4>
-                    <p class="reto-description">Enumeración de AD y explotación de BloodHound para identificar rutas de escalada críticas.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">AD</span>
-                        <span class="reto-tag">BloodHound</span>
-                        <span class="reto-tag">Privesc</span>
+        </section>
+
+        <!-- Platforms Grid -->
+        <section class="container platform-selection">
+            <div class="platform-grid">
+                <a href="hackthebox/" class="platform-card htb">
+                    <div class="platform-card-content">
+                        <span class="platform-icon">🟢</span>
+                        <h3>HackTheBox</h3>
+                        <p>Máquinas de pentesting, retos de Active Directory y laboratorios avanzados.</p>
+                        <span class="view-all">Ver retos →</span>
                     </div>
-                    <div class="reto-score">100 / 100</div>
-                </div>
-            </div>
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty medium">Medium</span>
-                    <h4>Monteverde</h4>
-                    <p class="reto-description">Ataque de fuerza bruta de usuarios y explotación de Azure AD Connect para obtener credenciales.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">Azure AD</span>
-                        <span class="reto-tag">Brute Force</span>
-                        <span class="reto-tag">Windows</span>
+                </a>
+
+                <a href="caixabank/" class="platform-card caixabank">
+                    <div class="platform-card-content">
+                        <span class="platform-icon">🔵</span>
+                        <h3>CaixaBank Tech</h3>
+                        <p>Retos de ciberseguridad financiera y competiciones oficiales de CaixaBank.</p>
+                        <span class="view-all">Ver retos →</span>
                     </div>
-                    <div class="reto-score">100 / 100</div>
-                </div>
-            </div>
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty hard">Hard</span>
-                    <h4>Intelligence</h4>
-                    <p class="reto-description">Explotación avanzada de AD CS y delegación de Kerberos en un entorno empresarial complejo.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">AD CS</span>
-                        <span class="reto-tag">Kerberos</span>
-                        <span class="reto-tag">Relaying</span>
+                </a>
+
+                <a href="tryhackme/" class="platform-card thm">
+                    <div class="platform-card-content">
+                        <span class="platform-icon">🔴</span>
+                        <h3>TryHackMe</h3>
+                        <p>Laboratorios de aprendizaje, rutas de especialización y retos prácticos.</p>
+                        <span class="view-all">Ver retos →</span>
                     </div>
-                    <div class="reto-score">100 / 100</div>
-                </div>
+                </a>
+
+                <a href="picoctf/" class="platform-card picoctf">
+                    <div class="platform-card-content">
+                        <span class="platform-icon">🟣</span>
+                        <h3>PicoCTF</h3>
+                        <p>Retos de CTF clásicos: Criptografía, Reversing, Web y Forense.</p>
+                        <span class="view-all">Ver retos →</span>
+                    </div>
+                </a>
             </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/DaviiddPR" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/david-poderoso-712407267/" target="_blank">LinkedIn</a>
+            </div>
+            <p class="footer-text">&copy; 2023 iHarzz | All rights reserved.</p>
         </div>
-    </div>
+    </footer>
 
-    <!-- CaixaBank -->
-    <div class="reto-category">
-        <h2><span class="platform-icon">🔵</span> CaixaBank Tech</h2>
-        <div class="retos-grid">
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty medium">Medium</span>
-                    <h4>Secure API</h4>
-                    <p class="reto-description">Identificación de IDOR y Broken Object Level Authorization en una API financiera simulada.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">Web</span>
-                        <span class="reto-tag">API</span>
-                        <span class="reto-tag">IDOR</span>
-                    </div>
-                    <div class="reto-score">COMPLETADO</div>
-                </div>
-            </div>
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty hard">Hard</span>
-                    <h4>Cloud Escape</h4>
-                    <p class="reto-description">Explotación de configuraciones incorrectas en AWS S3 y escalada a través de roles IAM.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">Cloud</span>
-                        <span class="reto-tag">AWS</span>
-                        <span class="reto-tag">IAM</span>
-                    </div>
-                    <div class="reto-score">COMPLETADO</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- TryHackMe -->
-    <div class="reto-category">
-        <h2><span class="platform-icon">🔴</span> TryHackMe</h2>
-        <div class="retos-grid">
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty easy">Easy</span>
-                    <h4>Pickle Rick</h4>
-                    <p class="reto-description">CTF temático de Rick & Morty enfocado en enumeración web y Command Injection.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">Web</span>
-                        <span class="reto-tag">RCE</span>
-                        <span class="reto-tag">Linux</span>
-                    </div>
-                    <div class="reto-score">COMPLETADO</div>
-                </div>
-            </div>
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty medium">Medium</span>
-                    <h4>Steel Mountain</h4>
-                    <p class="reto-description">Explotación de un servidor de archivos HFS y escalada de privilegios manual en Windows.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">Windows</span>
-                        <span class="reto-tag">Metasploit</span>
-                        <span class="reto-tag">Privesc</span>
-                    </div>
-                    <div class="reto-score">COMPLETADO</div>
-                </div>
-            </div>
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty medium">Medium</span>
-                    <h4>Alfred</h4>
-                    <p class="reto-description">Explotación de Jenkins para obtener acceso inicial y escalada mediante Token Impersonation.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">Jenkins</span>
-                        <span class="reto-tag">Tokens</span>
-                        <span class="reto-tag">Windows</span>
-                    </div>
-                    <div class="reto-score">COMPLETADO</div>
-                </div>
-            </div>
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty hard">Hard</span>
-                    <h4>Internal</h4>
-                    <p class="reto-description">Prueba de penetración de red interna con túneles SSH y explotación de Jenkins/Wordpress.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">Network</span>
-                        <span class="reto-tag">Tunneling</span>
-                        <span class="reto-tag">Linux</span>
-                    </div>
-                    <div class="reto-score">COMPLETADO</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- PicoCTF -->
-    <div class="reto-category">
-        <h2><span class="platform-icon">🟣</span> PicoCTF</h2>
-        <div class="retos-grid">
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty easy">Easy</span>
-                    <h4>Transformation</h4>
-                    <p class="reto-description">Reto de criptografía/reversing que requiere entender el encoding de caracteres Unicode.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">Crypto</span>
-                        <span class="reto-tag">Reverse</span>
-                    </div>
-                    <div class="reto-score">COMPLETADO</div>
-                </div>
-            </div>
-            <div class="reto-card">
-                <div class="reto-card-content">
-                    <span class="difficulty medium">Medium</span>
-                    <h4>Web Gauntlet</h4>
-                    <p class="reto-description">Serie de retos de SQL Injection filtrando diferentes keywords en cada nivel.</p>
-                    <div class="reto-tags">
-                        <span class="reto-tag">Web</span>
-                        <span class="reto-tag">SQLi</span>
-                        <span class="reto-tag">Bypass</span>
-                    </div>
-                    <div class="reto-score">COMPLETADO</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-</main>
-
-<!-- Footer -->
-<footer>
-<div class="container">
-<div class="social-links">
-<a href="https://github.com/DaviiddPR" target="_blank">GitHub</a>
-<a href="https://www.linkedin.com/in/david-poderoso-712407267/" target="_blank">LinkedIn</a>
-</div>
-<p class="footer-text">&copy; 2023 iHarzz | All rights reserved.</p>
-</div>
-</footer>
-
-<script src="../js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>

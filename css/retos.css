@@ -78,7 +78,8 @@
     filter: brightness(0) invert(1);
 }
 
-.category-logo[alt="HTB"] {
+.category-logo[alt="HTB"],
+.category-logo[alt="PicoCTF"] {
     filter: none;
 }
 

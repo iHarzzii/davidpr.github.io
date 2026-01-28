@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHarzz - Writeup [MOD 26] | Cryptography</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/writeup.css">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../../../" class="logo">iHarzz</a>
+            <ul>
+                <li><a href="../../../" class="nav-link">Home</a></li>
+                <li><a href="../../../blog/" class="nav-link">Blog</a></li>
+                <li><a href="../../../proyectos/" class="nav-link">Proyectos</a></li>
+                <li><a href="../../../retos/" class="nav-link">Retos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="section-title">Writeup: [MOD 26]</h1>
+            <p class="subtitle">Cryptography - Cifrado por sustitución ROT13</p>
+            <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+                <div class="stat">
+                    <span class="stat-number" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Dificultad</span>
+                    <span class="stat-label" style="display: block; color: #22c55e;">Fácil</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Plataforma</span>
+                    <span class="stat-label" style="display: block; color: var(--text-secondary);">PicoCTF</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <article class="writeup-content">
+            <section class="writeup-section">
+                <div class="warning-box" style="background: rgba(245, 158, 11, 0.1); border: 1px solid #f59e0b; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                    <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">⚠️ ADVERTENCIA</h3>
+                    <p>ANTES DE VER EL WRITEUP ES RECOMENDABLE QUE PRUEBES A REALIZAR TÚ EL RETO.</p>
+                </div>
+                
+                <h2>ANÁLISIS DEL RETO</h2>
+                <p>Este reto es bastante sencillo; debemos fijarnos en la descripción del ejercicio, donde ya se indica qué tipo de cifrado se ha utilizado para codificar la flag. En este caso, el cifrado es <strong>ROT13</strong>.</p>
+                
+                <div class="code-header" style="margin-top: 2rem;">FLAG CIFRADA:</div>
+                <pre><code>cvpbPGS{arkg_gvzr_V’yy_gel_2_ebhaqf_bs_ebg13_hyLicInt}</code></pre>
+            </section>
+
+            <section class="writeup-section">
+                <h3>¿QUÉ ES ROT13?</h3>
+                <p>ROT13 consiste en una técnica de cifrado por sustitución que consiste en desplazar cada letra del alfabeto <strong>13 posiciones</strong> hacia adelante. Por ejemplo, “A” se convierte en “N”, “B” en “O” y así sucesivamente.</p>
+                <p>Es utilizado comúnmente para ocultar texto de manera simple, pero no proporciona una seguridad real.</p>
+            </section>
+
+            <section class="writeup-section">
+                <h3>RESOLUCIÓN CON CYBERCHEF</h3>
+                <p>Para decodificar este cifrado, utilizaremos la herramienta <strong>CyberChef</strong>.</p>
+                
+                <div class="info-badge" style="margin: 1.5rem 0;">
+                    HERRAMIENTA: <a href="https://gchq.github.io/CyberChef/" target="_blank" style="color: var(--primary);">CyberChef</a>
+                </div>
+
+                <h4>Funcionamiento de la herramienta:</h4>
+                <ul class="requirements-list">
+                    <li><strong>Sección Operations:</strong> Buscamos "ROT13" y lo arrastramos a Recipe.</li>
+                    <li><strong>Sección Recipe:</strong> Aquí se muestran los filtros aplicados.</li>
+                    <li><strong>Sección Input:</strong> Pegamos nuestra flag cifrada.</li>
+                    <li><strong>Sección Output:</strong> Obtenemos el resultado decodificado automáticamente.</li>
+                </ul>
+            </section>
+
+            <section class="writeup-section" style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
+                <div class="flags-container">
+                    <div class="flag-card" style="background: rgba(0, 217, 255, 0.1); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--primary); text-align: center;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">FLAG OBTENIDA</h4>
+                        <code style="color: var(--text-primary); font-size: 1.2rem;">picoCTF{next_time_I'll_try_2_rounds_of_rot13_ulLicInt}</code>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/DaviiddPR" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/david-poderoso-712407267/" target="_blank">LinkedIn</a>
+            </div>
+            <p class="footer-text">&copy; 2026 iHarzz - Penetration Testing & Cybersecurity. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../../js/script.js"></script>
+</body>
+</html>

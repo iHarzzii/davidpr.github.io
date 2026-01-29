@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHarzz - Writeup [MIND YOUR Ps AND Qs] | Cryptography</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/writeup.css">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../../../" class="logo">iHarzz</a>
+            <ul>
+                <li><a href="../../../" class="nav-link">Home</a></li>
+                <li><a href="../../../blog/" class="nav-link">Blog</a></li>
+                <li><a href="../../../proyectos/" class="nav-link">Proyectos</a></li>
+                <li><a href="../../../retos/" class="nav-link">Retos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="section-title">Writeup: [MIND YOUR Ps AND Qs]</h1>
+            <p class="subtitle">Cryptography - PicoCTF</p>
+            <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+                <div class="stat">
+                    <span class="stat-number" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Dificultad</span>
+                    <span class="stat-label" style="display: block; color: #22c55e;">Fácil</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Plataforma</span>
+                    <span class="stat-label" style="display: block; color: var(--text-secondary);">PicoCTF</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <article class="writeup-content">
+            <section class="writeup-section">
+                <div class="warning-box" style="background: rgba(245, 158, 11, 0.1); border: 1px solid #f59e0b; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                    <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">⚠️ ADVERTENCIA</h3>
+                    <p>ANTES DE VER EL WRITEUP ES RECOMENDABLE QUE PRUEBES A REALIZAR TÚ EL RETO.</p>
+                </div>
+                
+                <p>Como vemos en la imagen, se trata de un RSA completo, listo para poder descifrarse. Vamos a utilizar una herramienta en línea para decodificar el RSA y obtener la flag. La herramienta utilizada para este caso será “dCode”.</p>
+                
+                <div class="info-badge" style="margin: 1.5rem 0;">
+                    HERRAMIENTA: <a href="https://www.dcode.fr/rsa-cipher" target="_blank" style="color: var(--primary);">dCode - RSA Cipher</a>
+                </div>
+
+                <div class="code-header" style="margin-top: 2rem;">VALORES RSA</div>
+                <pre><code>C = 861270243527190895777142537838333832920579264010533029282104230006461420086153423
+
+N = 1311097532562595991877980619849724606784164430105441327897358800116889057763413423
+
+E = 65537</code></pre>
+
+                <p>Una vez rellenados los valores correspondientes, el resultado se mostrará en la parte izquierda de la pantalla. En este caso, el descifrado es satisfactorio ya que nos otorga la flag.</p>
+            </section>
+
+            <section class="writeup-section" style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
+                <div class="flags-container">
+                    <div class="flag-card" style="background: rgba(0, 217, 255, 0.1); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--primary); text-align: center;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">FLAG OBTENIDA</h4>
+                        <code style="color: var(--text-primary); font-size: 1.2rem;">picoCTF{ps_and_qs_n_0_y33t_5967fd6a}</code>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/DaviiddPR" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/david-poderoso-712407267/" target="_blank">LinkedIn</a>
+            </div>
+            <p class="footer-text">&copy; 2026 iHarzz - Penetration Testing & Cybersecurity. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../../js/script.js"></script>
+</body>
+</html>

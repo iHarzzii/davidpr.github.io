@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHarzz - Writeup [WHERE ARE THE ROBOTS] | Web Exploitation</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/writeup.css">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../../../" class="logo">iHarzz</a>
+            <ul>
+                <li><a href="../../../" class="nav-link">Home</a></li>
+                <li><a href="../../../blog/" class="nav-link">Blog</a></li>
+                <li><a href="../../../proyectos/" class="nav-link">Proyectos</a></li>
+                <li><a href="../../../retos/" class="nav-link">Retos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="section-title">Writeup: [WHERE ARE THE ROBOTS]</h1>
+            <p class="subtitle">Web Exploitation - PicoCTF</p>
+            <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+                <div class="stat">
+                    <span class="stat-number" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Dificultad</span>
+                    <span class="stat-label" style="display: block; color: #22c55e;">Fácil</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Plataforma</span>
+                    <span class="stat-label" style="display: block; color: var(--text-secondary);">PicoCTF</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <article class="writeup-content">
+            <section class="writeup-section">
+                <div class="warning-box" style="background: rgba(245, 158, 11, 0.1); border: 1px solid #f59e0b; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                    <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">⚠️ ADVERTENCIA</h3>
+                    <p>ANTES DE VER EL WRITEUP ES RECOMENDABLE QUE PRUEBES A REALIZAR TÚ EL RETO.</p>
+                </div>
+                
+                <h2>INICIO DEL RETO "WHERE ARE THE ROBOTS"</h2>
+                <p>Una vez entremos al entorno para empezar el reto, nos saldra únicamente el contenido de arriba, que prestandole atención nos da mucha información de cara a la resolución del reto.</p>
+            </section>
+
+            <section class="writeup-section">
+                <h3>INFORMACIÓN SOBRE EL CONTENIDO VISUAL DE LA PÁGINA</h3>
+                <p>Al mirar la página, notamos de inmediato un mensaje que dice: <strong>‘Where are the robots? - ¿Dónde están los robots?’</strong>. Esta frase hace referencia al famoso protocolo <strong>Robots.txt</strong>.</p>
+            </section>
+
+            <section class="writeup-section">
+                <h3>¿CÓMO VER EL CONTENIDO DE "ROBOTS.TXT"?</h3>
+                <p>En primer lugar, nos posicionaremos sobre el enlace de la web. Una vez que estamos posicionados encima, nos desplazamos al final del enlace y agregamos lo siguiente: <code>/robots.txt</code></p>
+                <p>Debería de quedarnos así:</p>
+                <!-- Placeholder para imagen 1 -->
+                
+                <p>Una vez entremos, veremos que nos salen dos lineas visibles.</p>
+                <pre><code>User-agent: *
+Disallow: /8028f.html</code></pre>
+            </section>
+
+            <section class="writeup-section" style="border-top: 1px solid var(--border-color); padding-top: 2rem;">
+                <h3>OBTENCIÓN DE LA FLAG</h3>
+                <p>Si repetimos el proceso de posicionar el cursor sobre el enlace de la web retirando el directorio <code>/robots.txt</code> y agregamos el contenido de <strong>Disallow</strong> al final del enlace, conseguiremos la flag.</p>
+                
+                <div class="flags-container" style="margin-top: 2rem;">
+                    <div class="flag-card" style="background: rgba(0, 217, 255, 0.1); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--primary); text-align: center;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">FLAG OBTENIDA</h4>
+                        <code style="color: var(--text-primary); font-size: 1.2rem;">picoCTF{ca7ch_7h3_rob075_8028f}</code>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/DaviiddPR" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/david-poderoso-712407267/" target="_blank">LinkedIn</a>
+            </div>
+            <p class="footer-text">&copy; 2026 iHarzz - Penetration Testing & Cybersecurity. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../../js/script.js"></script>
+</body>
+</html>

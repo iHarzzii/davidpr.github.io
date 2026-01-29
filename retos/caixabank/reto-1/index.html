@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iHarzz - Writeup [RETO 1] | Steganography</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/writeup.css">
+    <link rel="icon" type="image/png" href="../../../favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../../../" class="logo">iHarzz</a>
+            <ul>
+                <li><a href="../../../" class="nav-link">Home</a></li>
+                <li><a href="../../../blog/" class="nav-link">Blog</a></li>
+                <li><a href="../../../proyectos/" class="nav-link">Proyectos</a></li>
+                <li><a href="../../../retos/" class="nav-link">Retos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="section-title">Writeup: [RETO 1]</h1>
+            <p class="subtitle">Competición CaixaBank Tech | Reto Esteganografía [1/2]</p>
+            <div class="hero-stats" style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;">
+                <div class="stat">
+                    <span class="stat-number" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Dificultad</span>
+                    <span class="stat-label" style="display: block; color: #22c55e;">Fácil</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">Plataforma</span>
+                    <span class="stat-label" style="display: block; color: var(--text-secondary);">CaixaBank Tech</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <article class="writeup-content">
+            <section class="writeup-section">
+                <h2>TESIS DEL DESAFÍO</h2>
+                <p>Iniciamos el reto viendo la siguiente imagen. En ella, se puede observar que en la boca falta una pieza. Se utilizaron varias herramientas para examinar los metadatos de la imagen y verificar si contenía algún archivo en su interior, pero no se obtuvieron resultados.</p>
+                
+                <p>Tras varias horas realizando otros retos de la competición, llegué a la conclusión de que la pieza que falta podría ser la contraseña para acceder a los archivos en el interior de la imagen principal. Así que busqué información acerca de la pieza que faltaba y era la número <strong>35</strong>.</p>
+                
+                <p>Se utilizó la herramienta online <strong>Steganographic Decoder</strong>:</p>
+                <div class="info-badge" style="margin: 1.5rem 0;">
+                    HERRAMIENTA: <a href="https://futureboy.us/stegano/decinput.html" target="_blank" style="color: var(--primary);">Steganographic Decoder</a>
+                </div>
+
+                <p>Si pulsamos el botón “Submit”, nos dará un resultado que, como podemos ver, tiene formato de flag encriptado.</p>
+            </section>
+
+            <section class="writeup-section">
+                <h3>DESENCRIPTACIÓN DE LA FLAG</h3>
+                <p>Una vez obtenida la flag encriptada, deberemos desencriptarla para que esté correctamente y se pueda entregar para obtener la puntuación en la competición. Para ello, utilizaremos una herramienta online de la página <strong>“dCode”</strong>.</p>
+                
+                <div class="info-badge" style="margin: 1.5rem 0;">
+                    HERRAMIENTA: <a href="https://www.dcode.fr/rot-cipher" target="_blank" style="color: var(--primary);">ROT Cipher Decoder (dCode)</a>
+                </div>
+
+                <p>Una vez en la página, pondremos la flag codificada en el recuadro, pulsaremos el botón “Decrypt” y obtendremos el resultado en la parte izquierda de la pantalla.</p>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/DaviiddPR" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/david-poderoso-712407267/" target="_blank">LinkedIn</a>
+            </div>
+            <p class="footer-text">&copy; 2026 iHarzz - Penetration Testing & Cybersecurity. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../../js/script.js"></script>
+</body>
+</html>

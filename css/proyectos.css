@@ -20,9 +20,10 @@ background: rgba(0, 217, 255, 0.1);
 
 .proyectos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 400px));
     gap: 2.5rem;
     margin-top: 2rem;
+    justify-content: center;
 }
 
 .proyectos-grid a {

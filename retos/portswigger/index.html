@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iHarzz - Retos Portswigger | Web Security Academy</title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/retos.css">
-    <link rel="icon" type="image/png" href="../../favicon.png">
+    <title>iHarzz - Retos | CTF & Platforms</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/retos.css">
+    <link rel="icon" type="image/png" href="../favicon.png">
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <a href="../../" class="logo">iHarzz</a>
+            <a href="../" class="logo">iHarzz</a>
             <ul>
-                <li><a href="../../" class="nav-link">Home</a></li>
-                <li><a href="../../blog/" class="nav-link">Blog</a></li>
-                <li><a href="../../proyectos/" class="nav-link">Proyectos</a></li>
-                <li><a href="../../retos/" class="nav-link">Retos</a></li>
+                <li><a href="../" class="nav-link">Home</a></li>
+                <li><a href="../blog/" class="nav-link">Blog</a></li>
+                <li><a href="../proyectos/" class="nav-link">Proyectos</a></li>
+                <li><a class="nav-link active">Retos</a></li>
             </ul>
         </div>
     </nav>
@@ -26,18 +26,93 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Portswigger Academy</h1>
-                <p class="subtitle">Laboratorios y retos de vulnerabilidades web de Portswigger</p>
+                <h1>CTF & Platforms</h1>
+                <p class="subtitle">Explora mis write-ups y retos por plataforma</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Retos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Plataformas</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Top 1%</span>
+                        <span class="stat-label">THM Rank</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Retos Section -->
-        <section class="container retos-container">
-            <div class="reto-category">
-                <h2><span class="platform-icon"><img src="https://cdn.brandfetch.io/idC7C956wH/w/400/h/400/theme/dark/icon.jpeg?c=1dxbfHSJFAPEGdCLU4o5Baq" alt="" style="width: 35px; height: 35px; vertical-align: middle; border-radius: 8px; filter: drop-shadow(0 0 10px rgba(255, 102, 51, 0.3));"></span> Portswigger</h2>
-                <div class="retos-grid">
-                    <!-- Próximamente -->
-                </div>
+        <!-- Platforms Grid -->
+        <section class="container platform-selection">
+            <div class="platform-grid">
+                <a href="hackthebox/" class="platform-card htb">
+                    <div class="platform-card-content">
+                        <span class="platform-icon">
+                            <img src="https://cdn.simpleicons.org/hackthebox/9FEF00" alt="HackTheBox" class="platform-logo">
+                        </span>
+                        <h3>HackTheBox</h3>
+                        <p>Máquinas de pentesting, retos de Active Directory y laboratorios avanzados.</p>
+                        <span class="view-all">Ver retos →</span>
+                    </div>
+                </a>
+
+                <a href="caixabank/" class="platform-card caixabank">
+                    <div class="platform-card-content">
+                        <span class="platform-icon">
+                            <img src="https://logodownload.org/wp-content/uploads/2022/06/la-caixa-bank-logo-1.png" alt="CaixaBank" class="platform-logo">
+                        </span>
+                        <h3>CaixaBank Tech</h3>
+                        <p>Retos de ciberseguridad financiera y competiciones oficiales de CaixaBank.</p>
+                        <span class="view-all">Ver retos →</span>
+                    </div>
+                </a>
+
+                <a href="tryhackme/" class="platform-card thm">
+                    <div class="platform-card-content">
+                        <span class="platform-icon">
+                            <img src="https://cdn.simpleicons.org/tryhackme/FF0000" alt="TryHackMe" class="platform-logo">
+                        </span>
+                        <h3>TryHackMe</h3>
+                        <p>Laboratorios de aprendizaje, rutas de especialización y retos prácticos.</p>
+                        <span class="view-all">Ver retos →</span>
+                    </div>
+                </a>
+
+                <a href="picoctf/" class="platform-card picoctf">
+                    <div class="platform-card-content">
+                        <span class="platform-icon">
+                            <img src="https://avatars.githubusercontent.com/u/5315773?s=200&v=4" alt="PicoCTF" class="platform-logo">
+                        </span>
+                        <h3>PicoCTF</h3>
+                        <p>Retos de CTF clásicos: Criptografía, Reversing, Web y Forense.</p>
+                        <span class="view-all">Ver retos →</span>
+                    </div>
+                </a>
+
+                <a href="dockerlabs/" class="platform-card dockerlabs">
+                    <div class="platform-card-content">
+                        <span class="platform-icon">
+                            <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Dockerlabs" class="platform-logo">
+                        </span>
+                        <h3>Dockerlabs</h3>
+                        <p>Máquinas y laboratorios basados en contenedores Docker para practicar pentesting.</p>
+                        <span class="view-all">Ver retos →</span>
+                    </div>
+                </a>
+
+                <a href="portswigger/" class="platform-card portswigger">
+                    <div class="platform-card-content">
+                        <span class="platform-icon">
+                            <img src="https://cdn.brandfetch.io/idC7C956wH/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1744841067178" alt="Portswigger" class="platform-logo">
+                        </span>
+                        <h3>PortSwigger</h3>
+                        <p>Laboratorios oficiales de Web Security Academy para dominar vulnerabilidades web.</p>
+                        <span class="view-all">Ver retos →</span>
+                    </div>
+                </a>
             </div>
         </section>
     </main>
@@ -49,10 +124,10 @@
                 <a href="https://github.com/DaviiddPR" target="_blank">GitHub</a>
                 <a href="https://www.linkedin.com/in/david-poderoso-712407267/" target="_blank">LinkedIn</a>
             </div>
-            <p class="footer-text">&copy; 2026 iHarzz - Penetration Testing & Cybersecurity. All rights reserved.</p>
+            <p class="footer-text">&copy; 2026 iHarzz | All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="../../js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
